@@ -3,60 +3,564 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Monika Shekhawat | Surgical Oncology</title>
+    <title>Dr. Monika Shekhawat | Surgical Oncology & AI in Medicine</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f4f7f6; }
-        header { border-bottom: 3px solid #2c3e50; padding-bottom: 20px; margin-bottom: 30px; }
-        h1 { color: #2c3e50; margin-bottom: 5px; }
-        h2 { color: #e67e22; border-left: 5px solid #e67e22; padding-left: 10px; margin-top: 30px; }
-        .contact { color: #7f8c8d; font-style: italic; }
-        .tag { background: #2c3e50; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.9em; }
-        ul { padding-left: 20px; }
-        li { margin-bottom: 8px; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a472a;
+            --secondary: #e67e22;
+            --accent: #3498db;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #34495e;
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 0;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(26, 71, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #2d5a3d 100%);
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            animation: slideDown 0.6s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(230, 126, 34, 0.1);
+            border-radius: 50%;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        header .subtitle {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+            font-weight: 600;
+        }
+
+        header .contact {
+            color: rgba(255, 255, 255, 0.9);
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        header .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Sections */
+        section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            animation: fadeInUp 0.6s ease-out backwards;
+            border-left: 5px solid var(--secondary);
+        }
+
+        section:nth-child(odd) {
+            border-left-color: var(--accent);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section:nth-child(1) { animation-delay: 0.2s; }
+        section:nth-child(2) { animation-delay: 0.4s; }
+        section:nth-child(3) { animation-delay: 0.6s; }
+        section:nth-child(4) { animation-delay: 0.8s; }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 1.8rem;
+            background: linear-gradient(180deg, var(--secondary), var(--accent));
+            border-radius: 2px;
+        }
+
+        h3 {
+            color: var(--primary);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        /* Lists */
+        ul, ol {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 0.5rem;
+            transition: var(--transition);
+        }
+
+        li:hover {
+            padding-left: 1rem;
+            color: var(--primary);
+        }
+
+        /* Tags and Badges */
+        .tag, .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), #2d5a3d);
+            color: white;
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            transition: var(--transition);
+            box-shadow: 0 3px 10px rgba(26, 71, 42, 0.2);
+        }
+
+        .tag:hover, .badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(26, 71, 42, 0.3);
+        }
+
+        .badge-secondary {
+            background: linear-gradient(135deg, var(--secondary), #d35400);
+        }
+
+        .badge-accent {
+            background: linear-gradient(135deg, var(--accent), #2980b9);
+        }
+
+        /* Links */
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        a:hover {
+            color: var(--secondary);
+        }
+
+        a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+
+        a:hover::after {
+            width: 100%;
+        }
+
+        /* Cards for Research/Blog */
+        .research-item {
+            background: linear-gradient(135deg, rgba(26, 71, 42, 0.05), rgba(52, 152, 219, 0.05));
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--accent);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .research-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(52, 152, 219, 0.15);
+            border-left-color: var(--secondary);
+        }
+
+        .research-date {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .research-date::before {
+            content: '📅';
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, var(--light), white);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            border: 2px solid var(--light);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .skill-card:hover {
+            border-color: var(--secondary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(230, 126, 34, 0.15);
+        }
+
+        .skill-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .skill-card p {
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: white;
+            margin-top: 3rem;
+            background: var(--primary);
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        /* Icons */
+        .icon {
+            display: inline-block;
+            margin-right: 0.5rem;
+            color: var(--secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+
+            header .contact {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+
+            nav {
+                display: none;
+            }
+
+            section {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
     </style>
 </head>
 <body>
 
+<!-- Navigation -->
+<nav>
+    <ul>
+        <li><a href="#profile">Profile</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#research">Research & AI</a></li>
+        <li><a href="#blog">Blog & Publications</a></li>
+    </ul>
+</nav>
+
+<!-- Header -->
 <header>
     <h1>Dr. Monika Shekhawat</h1>
-    <p><strong>M.Ch (Surgical Oncology) | Consultant @ KGMU, Lucknow</strong></p>
-    <p class="contact">Monika05011992@gmail.com | Lucknow, India</p>
+    <p class="subtitle">M.Ch Surgical Oncology | Clinical Researcher & AI Advocate</p>
+    <div class="contact">
+        <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:Monika05011992@gmail.com" style="color: rgba(255,255,255,0.9);">Monika05011992@gmail.com</a>
+        </div>
+        <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            Lucknow, India
+        </div>
+        <div class="contact-item">
+            <i class="fas fa-hospital"></i>
+            King George's Medical University
+        </div>
+    </div>
 </header>
 
-<section>
-    <h2>Professional Profile</h2>
-    <p>Consultant Surgical Oncologist at <strong>King George’s Medical University</strong>. I specialize in complex oncological resections while bridging the gap between clinical surgery and <strong>Data Science</strong>. Currently developing predictive models for extremity soft tissue sarcoma using R.</p>
-</section>
+<div class="container">
 
-<section>
-    <h2>Education</h2>
-    <ul>
-        <li><strong>M.Ch Surgical Oncology</strong> – King George’s Medical University (2025)</li>
-        <li><strong>MS General Surgery</strong> – Pt. B.D. Sharma PGIMS, Rohtak</li>
-        <li><strong>MBBS</strong> – Lady Hardinge Medical College, New Delhi</li>
-    </ul>
-</section>
+    <!-- Professional Profile -->
+    <section id="profile">
+        <h2>Professional Profile</h2>
+        <p>Consultant Surgical Oncologist at <strong>King George's Medical University, Lucknow</strong>, specializing in complex oncological resections and translational research. Passionate about bridging clinical surgery with medical AI and data science. Advisory board member at OneRx.AI, focusing on medical-grade LLM development.</p>
+        <p style="margin-top: 1rem;"><strong>Clinical Expertise:</strong></p>
+        <div>
+            <span class="badge">Surgical Oncology</span>
+            <span class="badge badge-secondary">Musculoskeletal Oncology</span>
+            <span class="badge badge-accent">Cancer Research</span>
+            <span class="badge badge-secondary">Clinical Data Science</span>
+        </div>
+    </section>
 
-<section>
-    <h2>Research & AI Focus</h2>
-    <ul>
-        <li><strong>Advisory Board Member:</strong> Medical Grade LLM Development, OneRx.AI.</li>
-        <li><strong>Technical Skills:</strong> R Programming (Survival Analysis, Meta-Analysis), Clinical Data Cleaning.</li>
-        <li><strong>Certifications:</strong> NIH Clinical Research (IPPCR) & ICMR Biomedical Research.</li>
-    </ul>
-</section>
-<section>
-    <h2>Recent Research & Blog Posts</h2>
-    <ul>
-        <li>
-            <strong>April 2026:</strong> <a href="post-template.html">Survival Analysis in Synovial Sarcoma using R</a>
-        </li>
-        <li>
-            <strong>March 2026:</strong> <a href="#">Observership Insights: Musculoskeletal Oncology in Tokyo</a>
-        </li>
-    </ul>
-</section>
+    <!-- Education -->
+    <section id="education">
+        <h2>Education & Certifications</h2>
+        <ul>
+            <li>
+                <strong>M.Ch Surgical Oncology</strong>
+                <div style="color: var(--secondary); font-size: 0.95rem; margin-top: 0.25rem;">King George's Medical University, Lucknow • 2025</div>
+            </li>
+            <li>
+                <strong>MS General Surgery</strong>
+                <div style="color: var(--secondary); font-size: 0.95rem; margin-top: 0.25rem;">Pt. B.D. Sharma PGIMS, Rohtak</div>
+            </li>
+            <li>
+                <strong>MBBS</strong>
+                <div style="color: var(--secondary); font-size: 0.95rem; margin-top: 0.25rem;">Lady Hardinge Medical College, New Delhi</div>
+            </li>
+        </ul>
+        
+        <h3>Professional Certifications</h3>
+        <ul>
+            <li><span class="tag">NIH Clinical Research (IPPCR)</span></li>
+            <li><span class="tag">ICMR Biomedical Research</span></li>
+        </ul>
+    </section>
 
+    <!-- Research & AI Focus -->
+    <section id="research">
+        <h2>Research & AI Innovation</h2>
+        
+        <h3>Current Roles</h3>
+        <ul>
+            <li><strong>Advisory Board Member</strong> – Medical Grade LLM Development at OneRx.AI</li>
+            <li><strong>Consultant Surgical Oncologist</strong> – King George's Medical University</li>
+            <li><strong>Clinical Researcher</strong> – Translational Oncology & Data Science</li>
+        </ul>
+
+        <h3>Technical Skills</h3>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h4><i class="fas fa-chart-line icon"></i>Data Analysis</h4>
+                <p>Survival Analysis, Meta-Analysis, Statistical Modeling</p>
+            </div>
+            <div class="skill-card">
+                <h4><i class="fas fa-code icon"></i>Programming</h4>
+                <p>R Programming, Clinical Data Cleaning & Preparation</p>
+            </div>
+            <div class="skill-card">
+                <h4><i class="fas fa-brain icon"></i>AI & ML</h4>
+                <p>Medical LLM Development, Clinical AI Applications</p>
+            </div>
+            <div class="skill-card">
+                <h4><i class="fas fa-flask icon"></i>Research</h4>
+                <p>Clinical Trials, Biomedical Research, Translational Science</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Research & Publications -->
+    <section id="blog">
+        <h2>Recent Research & Publications</h2>
+        
+        <div class="research-item">
+            <div class="research-date">April 2026</div>
+            <a href="post-template.html" style="display: block;">
+                <h3 style="color: var(--primary); margin-top: 0;">Survival Analysis in Synovial Sarcoma using R</h3>
+                <p style="margin: 0.5rem 0; color: var(--text);">Comprehensive guide to performing survival analysis for rare soft tissue sarcomas with reproducible R workflows.</p>
+                <span class="tag" style="margin-top: 0.75rem;">R Programming</span>
+                <span class="tag">Survival Analysis</span>
+                <span class="tag">Oncology</span>
+            </a>
+        </div>
+
+        <div class="research-item">
+            <div class="research-date">March 2026</div>
+            <a href="#" style="display: block;">
+                <h3 style="color: var(--primary); margin-top: 0;">Observership Insights: Musculoskeletal Oncology in Tokyo</h3>
+                <p style="margin: 0.5rem 0; color: var(--text);">Clinical observations and learning from international collaboration with leading musculoskeletal oncology centers.</p>
+                <span class="tag" style="margin-top: 0.75rem;">Clinical Practice</span>
+                <span class="tag">MSK Oncology</span>
+                <span class="tag">Global Health</span>
+            </a>
+        </div>
+    </section>
+
+</div>
+
+<!-- Footer -->
+<footer>
+    <p><strong>Dr. Monika Shekhawat</strong></p>
+    <p>Consultant Surgical Oncologist | Clinical Researcher | AI Innovator</p>
+    <p style="font-size: 0.9rem; margin-top: 1rem; opacity: 0.8;">© 2026 • Built with dedication to advancing surgical oncology and clinical AI</p>
+</footer>
 
 </body>
 </html>
